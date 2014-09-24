@@ -407,13 +407,12 @@
 ******************/
 
 ;(function (factory) {
-    /* CommonJS module. */
-    if (typeof module === "object" && typeof module.exports === "object") {
-        module.exports = factory();
     /* AMD module. */
-    } else if (typeof define === "function" && define.amd) {
+    if (typeof define === "function" && define.amd) {
         define(factory);
-    /* Browser globals. */
+    /* CommonJS module. */
+    } else if (typeof module === "object" && typeof module.exports === "object") {
+        module.exports = factory();
     } else {
         factory();
     }
